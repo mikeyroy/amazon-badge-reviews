@@ -1,0 +1,35 @@
+{
+	"name": "Amazon Badge Reviews",
+	"version": "1.0",
+	"description": "Filters Amazon reviews from those with qualified badges, such as Real Name, Top # Reviewer, Vine Voice, etc...",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon.png"
+	},
+	"permissions": [
+      "*://*.amazon.com/*",
+      "http://www.mikepearce.us/api/aws/*"
+	],
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"content_scripts": [
+		{
+			"matches": [
+		      "*://*.amazon.com/*/dp/*",
+		      "*://*.amazon.com/gp/*",
+		      "*://*.amazon.com/*/product/*"
+			],
+			"js": [
+				"jquery.js",
+				"underscore.js",
+				"bootstrap-tabs.js",
+				"reviews.js"
+			],
+			"css": [
+				"bootstrap.css",
+				"reviews.css"
+			]
+		}
+	],
+	"manifest_version": 2
+}
